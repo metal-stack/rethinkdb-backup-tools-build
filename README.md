@@ -14,6 +14,6 @@ Binaries include:
 ```dockerfile
 FROM ghcr.io/metal-stack/rethinkdb-backup-tools-build:2.4.0 as rethinkdb-backup-tools
 
-FROM rethinkdb/rethinkdb:2.4.0
-COPY --from rethinkdb-backup-tools /rethinkdb-dump /rethinkdb-restore /rethinkdb/
+FROM rethinkdb:2.4.0
+COPY --from=rethinkdb-backup-tools /rethinkdb-dump /rethinkdb-restore /rethinkdb/
 ```
