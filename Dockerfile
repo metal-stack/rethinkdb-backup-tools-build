@@ -7,5 +7,5 @@ COPY build/rethinkdb-restore.spec rethinkdb-restore.spec
 RUN pyinstaller rethinkdb-dump.spec \
     && pyinstaller rethinkdb-restore.spec
 
-FROM alpine:3.18
+FROM scratch
 COPY --from=rethinkdb-python-client-builder /work/dist/rethinkdb-dump /work/dist/rethinkdb-restore /
