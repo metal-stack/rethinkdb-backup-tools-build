@@ -1,4 +1,4 @@
 FROM ghcr.io/metal-stack/rethinkdb-backup-tools-build:latest as rethinkdb-backup-tools
 
-FROM rethinkdb:2.4.0
+FROM rethinkdb:2.4.1
 COPY --from=rethinkdb-backup-tools /rethinkdb-dump /rethinkdb-restore /rethinkdb/
