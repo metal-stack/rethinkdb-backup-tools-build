@@ -1,7 +1,7 @@
-FROM rethinkdb:2.4.1 as rethinkdb-python-client-builder
+FROM rethinkdb:2.4.4-bookworm-slim AS rethinkdb-python-client-builder
 WORKDIR /work
 RUN apt update && apt install -y python3-pip
-RUN pip3 install pyinstaller==4.3.0 rethinkdb
+RUN pip3 install pyinstaller==6.14.1 rethinkdb --break-system-packages
 COPY build/rethinkdb-dump.spec rethinkdb-dump.spec
 COPY build/rethinkdb-restore.spec rethinkdb-restore.spec
 RUN pyinstaller rethinkdb-dump.spec \
